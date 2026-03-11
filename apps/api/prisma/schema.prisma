@@ -1,0 +1,61 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id            String        @id @default(cuid())
+  email         String        @unique
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+  portfolios    Portfolio[]
+  taxReports    TaxReport[]
+}
+
+model Portfolio {
+  id           String        @id @default(cuid())
+  name         String
+  currency     String        @default("PLN")
+  userId       String
+  user         User          @relation(fields: [userId], references: [id])
+  transactions Transaction[]
+  createdAt    DateTime      @default(now())
+}
+
+model Transaction {
+  id              String          @id @default(cuid())
+  ticker          String
+  type            TransactionType
+  quantity        Float
+  price           Float
+  currency        String
+  exchangeRatePln Float           @default(1)
+  fee             Float           @default(0)
+  date            DateTime
+  portfolioId     String
+  portfolio       Portfolio       @relation(fields: [portfolioId], references: [id])
+  createdAt       DateTime        @default(now())
+}
+
+model TaxReport {
+  id           String   @id @default(cuid())
+  year         Int
+  totalIncome  Float
+  totalCost    Float
+  profit       Float
+  taxAmount    Float
+  userId       String
+  user         User     @relation(fields: [userId], references: [id])
+  createdAt    DateTime @default(now())
+}
+
+enum TransactionType {
+  BUY
+  SELL
+  DIVIDEND
+}
