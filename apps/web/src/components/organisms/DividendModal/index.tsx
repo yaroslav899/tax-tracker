@@ -14,12 +14,17 @@ const CURRENCY_OPTIONS = [
 ]
 
 const EMPTY_FORM: DividendPayload = {
-  ticker: '', date: '', value: 0, currency: 'USD',
-  withholding: 0, valuePln: null, withholdingPln: null,
+  ticker: '',
+  date: '',
+  value: 0,
+  currency: 'USD',
+  withholding: 0,
+  valuePln: null,
+  withholdingPln: null,
 }
 
 const round2 = (n: number) => Math.round(n * 100) / 100
-const fmt2 = (n: number | null | undefined) => n != null ? n.toFixed(2) : '—'
+const fmt2 = (n: number | null | undefined) => (n != null ? n.toFixed(2) : '—')
 
 export const DividendModal = ({ isOpen, onClose, onSubmit, initial }: DividendModalProps) => {
   const { t } = useTranslation()
@@ -35,7 +40,7 @@ export const DividendModal = ({ isOpen, onClose, onSubmit, initial }: DividendMo
   useEffect(() => {
     if (initial) {
       const [month, day, year] = initial.date.split('/')
-      const newForm = {
+      setForm({
         ticker: initial.ticker,
         date: `${year}-${month}-${day}`,
         value: initial.value,
@@ -43,8 +48,7 @@ export const DividendModal = ({ isOpen, onClose, onSubmit, initial }: DividendMo
         withholding: initial.withholding ?? 0,
         valuePln: initial.valuePln ?? null,
         withholdingPln: initial.withholdingPln ?? null,
-      }
-      setForm(newForm)
+      })
       if (initial.valuePln != null) setRate(-1)
       else setRate(null)
     } else {
@@ -65,7 +69,7 @@ export const DividendModal = ({ isOpen, onClose, onSubmit, initial }: DividendMo
       const withholdingPln = round2(Number(form.withholding) * fetchedRate)
       setRate(fetchedRate)
       setForm((prev) => ({ ...prev, valuePln, withholdingPln }))
-    } catch (e) {
+    } catch {
       setConvertError(t('dividendModal.convertError'))
     } finally {
       setConverting(false)
@@ -95,25 +99,24 @@ export const DividendModal = ({ isOpen, onClose, onSubmit, initial }: DividendMo
     }
   }
 
-  const rateLabel = rate && rate > 0
-    ? `(${t('dividendModal.rateApplied')}: ${rate.toFixed(4)} PLN)`
-    : rate === -1 ? `(${t('dividendModal.rateApplied')})` : ''
+  const rateLabel =
+    rate && rate > 0
+      ? `(${t('dividendModal.rateApplied')}: ${rate.toFixed(4)} PLN)`
+      : rate === -1
+        ? `(${t('dividendModal.rateApplied')})`
+        : ''
 
   return (
     <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
       <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 w-full max-w-md flex flex-col gap-4">
-
         <h2 className="text-lg font-semibold text-white">
           {initial ? t('dividendModal.edit') : t('dividendModal.add')}
         </h2>
-
         <div className="flex flex-col gap-3">
-
           <div className="flex flex-col gap-1">
             <label className="text-xs text-gray-400">{t('table.ticker')}</label>
             <Input value={form.ticker} onChange={setField('ticker')} placeholder="AAPL" />
           </div>
-
           <div className="flex gap-3">
             <div className="flex flex-col gap-1 flex-1">
               <label className="text-xs text-gray-400">{t('table.date')}</label>
@@ -126,10 +129,13 @@ export const DividendModal = ({ isOpen, onClose, onSubmit, initial }: DividendMo
             </div>
             <div className="flex flex-col gap-1 flex-1">
               <label className="text-xs text-gray-400">{t('table.currency')}</label>
-              <Select value={form.currency} onChange={setField('currency')} options={CURRENCY_OPTIONS} />
+              <Select
+                value={form.currency}
+                onChange={setField('currency')}
+                options={CURRENCY_OPTIONS}
+              />
             </div>
           </div>
-
           <div className="border border-gray-700 rounded-lg p-3 flex gap-3">
             <div className="flex flex-col gap-1 flex-1">
               <label className="text-xs text-gray-400">{t('table.value')}</label>
@@ -137,10 +143,13 @@ export const DividendModal = ({ isOpen, onClose, onSubmit, initial }: DividendMo
             </div>
             <div className="flex flex-col gap-1 flex-1">
               <label className="text-xs text-gray-400">{t('table.withholding')}</label>
-              <Input value={String(form.withholding)} onChange={setField('withholding')} placeholder="1.44" />
+              <Input
+                value={String(form.withholding)}
+                onChange={setField('withholding')}
+                placeholder="1.44"
+              />
             </div>
           </div>
-
           <button
             onClick={handleConvert}
             disabled={!canConvert || converting}
@@ -150,14 +159,16 @@ export const DividendModal = ({ isOpen, onClose, onSubmit, initial }: DividendMo
                 : 'bg-gray-800 text-gray-600 cursor-not-allowed'
             }`}
           >
-            {converting ? `⏳ ${t('dividendModal.converting')}` : `🔄 ${t('dividendModal.convertBtn')}`}
+            {converting
+              ? `⏳ ${t('dividendModal.converting')}`
+              : `🔄 ${t('dividendModal.convertBtn')}`}
           </button>
-
           {convertError && <p className="text-xs text-red-400">{convertError}</p>}
-
-          <div className={`border rounded-lg p-3 flex flex-col gap-3 transition-colors ${
-            rate ? 'border-green-800 bg-green-900/10' : 'border-gray-800 opacity-50'
-          }`}>
+          <div
+            className={`border rounded-lg p-3 flex flex-col gap-3 transition-colors ${
+              rate ? 'border-green-800 bg-green-900/10' : 'border-gray-800 opacity-50'
+            }`}
+          >
             <span className="text-xs text-gray-500 font-medium">PLN {rateLabel}</span>
             <div className="flex gap-3">
               <div className="flex flex-col gap-1 flex-1">
@@ -178,22 +189,16 @@ export const DividendModal = ({ isOpen, onClose, onSubmit, initial }: DividendMo
               </div>
             </div>
           </div>
-
-          {!canSave && (
-            <p className="text-xs text-gray-500">
-              * {t('dividendModal.saveHint')}
-            </p>
-          )}
-
+          {!canSave && <p className="text-xs text-gray-500">* {t('dividendModal.saveHint')}</p>}
         </div>
-
         <div className="flex gap-3 justify-end pt-2">
-          <Button variant="ghost" onClick={onClose}>{t('dividendModal.cancel')}</Button>
+          <Button variant="ghost" onClick={onClose}>
+            {t('dividendModal.cancel')}
+          </Button>
           <Button onClick={handleSubmit} disabled={!canSave || loading}>
             {loading ? t('auth.loading') : t('dividendModal.save')}
           </Button>
         </div>
-
       </div>
     </div>
   )

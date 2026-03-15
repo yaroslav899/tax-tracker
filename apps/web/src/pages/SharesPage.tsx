@@ -10,6 +10,7 @@ import { useDividends } from '../hooks/useDividends'
 import { Button } from '../components/atoms/Button'
 import { UploadButton } from '../components/atoms/UploadButton'
 import { type Dividend } from '../components/molecules/DividendTable/types'
+import { type DividendPayload } from '../api/dividends'
 import { MOCK_BUYS, MOCK_SELLS } from '../mocks/transactions'
 
 type SidebarView = 'trades' | 'dividends'
@@ -27,7 +28,7 @@ export const SharesPage = () => {
     { id: 'dividends', label: t('sidebar.dividends') },
   ]
 
-  const handleSubmit = async (payload: any) => {
+  const handleSubmit = async (payload: DividendPayload) => {
     if (editItem) await update(editItem.id, payload)
     else await create(payload)
     setEditItem(null)
@@ -42,13 +43,12 @@ export const SharesPage = () => {
     if (confirm('Delete this dividend?')) await remove(id)
   }
 
-  const handleFileUpload = (file: File) => {
-    console.log('File uploaded:', file.name)
+  const handleFileUpload = (_file: File) => {
+    // TODO: parse IBKR CSV file
   }
 
   return (
     <div className="flex gap-4 w-full overflow-hidden">
-      {/* Sidebar */}
       <div className="shrink-0">
         <Sidebar
           options={SIDEBAR_OPTIONS}
@@ -57,7 +57,6 @@ export const SharesPage = () => {
         />
       </div>
 
-      {/* Main content */}
       <div className="flex-1 min-w-0 overflow-hidden">
         {activeView === 'trades' && (
           <div className="flex flex-col xl:flex-row gap-6">
@@ -72,7 +71,6 @@ export const SharesPage = () => {
 
         {activeView === 'dividends' && (
           <div className="flex gap-4 items-start">
-            {/* Left — table + chart */}
             <div className="flex-1 min-w-0 overflow-hidden flex flex-col gap-4">
               {loading ? (
                 <p className="text-gray-400 text-sm">{t('auth.loading')}</p>
@@ -86,7 +84,13 @@ export const SharesPage = () => {
                       <div className="flex items-center gap-3">
                         <UploadButton label={t('dividendModal.upload')} onFile={handleFileUpload} />
                         <div className="w-px h-5 bg-gray-700" />
-                        <Button size="sm" onClick={() => { setEditItem(null); setModalOpen(true) }}>
+                        <Button
+                          size="sm"
+                          onClick={() => {
+                            setEditItem(null)
+                            setModalOpen(true)
+                          }}
+                        >
                           + {t('dividendModal.add')}
                         </Button>
                       </div>
@@ -96,8 +100,6 @@ export const SharesPage = () => {
                 </>
               )}
             </div>
-
-            {/* Right — tax widget */}
             <TaxSummaryWidget dividends={dividends} />
           </div>
         )}
@@ -105,7 +107,10 @@ export const SharesPage = () => {
 
       <DividendModal
         isOpen={modalOpen}
-        onClose={() => { setModalOpen(false); setEditItem(null) }}
+        onClose={() => {
+          setModalOpen(false)
+          setEditItem(null)
+        }}
         onSubmit={handleSubmit}
         initial={editItem}
       />

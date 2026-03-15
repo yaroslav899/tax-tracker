@@ -1,25 +1,26 @@
-import express from 'express'
+import express, { type Request, type Response } from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
-import { authMiddleware } from './middleware/auth'
+import { authMiddleware, type AuthRequest } from './middleware/auth'
+import dividendsRouter from './routes/dividends'
 
 dotenv.config()
 
 const app = express()
 const PORT = process.env.PORT || 3000
 
-app.use(cors())
+app.use(cors({ origin: 'http://localhost:5173', credentials: true }))
 app.use(express.json())
 
-// Публічний роут
-app.get('/health', (req, res) => {
+app.get('/health', (_req: Request, res: Response) => {
   res.json({ status: 'ok', message: 'Tax Tracker API is running 🚀' })
 })
 
-// Захищений роут — тільки для авторизованих
-app.get('/api/me', authMiddleware, (req: any, res) => {
+app.get('/api/me', authMiddleware, (req: AuthRequest, res: Response) => {
   res.json({ userId: req.userId })
 })
+
+app.use('/api/dividends', dividendsRouter)
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`)

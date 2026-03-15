@@ -6,14 +6,22 @@
   "shares": { "title": "Shares & Dividends", "description": "IBKR — stocks and dividends" },
   "sidebar": { "trades": "Buy / Sell", "dividends": "Dividends" },
   "table": {
-    "ticker": "Ticker", "date": "Date",
-    "amount": "Amount", "value": "Value", "valuePln": "Amount (PLN)",
+    "ticker": "Ticker",
+    "date": "Date",
+    "amount": "Amount",
+    "value": "Value",
+    "valuePln": "Amount (PLN)",
     "tax19": "Tax 19%",
     "currency": "Currency",
-    "withholding": "Withholding", "withholdingPln": "Withholding (PLN)",
-    "price": "Price", "allYears": "All years",
-    "filterByTicker": "Filter by ticker...", "noData": "No data",
-    "buy": "Buy", "sell": "Sell", "dividends": "Dividends"
+    "withholding": "Withholding",
+    "withholdingPln": "Withholding (PLN)",
+    "price": "Price",
+    "allYears": "All years",
+    "filterByTicker": "Filter by ticker...",
+    "noData": "No data",
+    "buy": "Buy",
+    "sell": "Sell",
+    "dividends": "Dividends"
   },
   "taxWidget": {
     "title": "Tax calculation USA - PIT38",
@@ -25,17 +33,27 @@
     "taxDue": "Tax due in Poland"
   },
   "dividendModal": {
-    "add": "Add dividend", "edit": "Edit dividend",
-    "save": "Save", "cancel": "Cancel", "upload": "Upload file",
-    "convertBtn": "Convert to PLN", "converting": "Getting rate...",
+    "add": "Add dividend",
+    "edit": "Edit dividend",
+    "save": "Save",
+    "cancel": "Cancel",
+    "upload": "Upload file",
+    "convertBtn": "Convert to PLN",
+    "converting": "Getting rate...",
     "convertError": "Failed to get NBP rate. Try again.",
     "rateApplied": "Rate",
     "saveHint": "To save, first click \"Convert to PLN\" to get the exchange rate."
   },
   "auth": {
-    "login": "Sign in", "register": "Create account", "email": "Email",
-    "password": "Password", "loginBtn": "Sign in", "registerBtn": "Register",
-    "hasAccount": "Already have an account?", "noAccount": "Don't have an account?",
-    "loading": "Loading...", "checkEmail": "Check your email for confirmation!"
+    "login": "Sign in",
+    "register": "Create account",
+    "email": "Email",
+    "password": "Password",
+    "loginBtn": "Sign in",
+    "registerBtn": "Register",
+    "hasAccount": "Already have an account?",
+    "noAccount": "Don't have an account?",
+    "loading": "Loading...",
+    "checkEmail": "Check your email for confirmation!"
   }
 }

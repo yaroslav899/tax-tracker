@@ -1,15 +1,11 @@
-import { Request, Response, NextFunction } from 'express'
+import { type Request, type Response, type NextFunction } from 'express'
 import { supabase } from '../config/supabase'
 
 export interface AuthRequest extends Request {
   userId?: string
 }
 
-export const authMiddleware = async (
-  req: AuthRequest,
-  res: Response,
-  next: NextFunction
-) => {
+export const authMiddleware = async (req: AuthRequest, res: Response, next: NextFunction) => {
   const authHeader = req.headers.authorization
 
   if (!authHeader || !authHeader.startsWith('Bearer ')) {
@@ -18,7 +14,10 @@ export const authMiddleware = async (
 
   const token = authHeader.split(' ')[1]
 
-  const { data: { user }, error } = await supabase.auth.getUser(token)
+  const {
+    data: { user },
+    error,
+  } = await supabase.auth.getUser(token)
 
   if (error || !user) {
     return res.status(401).json({ error: 'Invalid token' })

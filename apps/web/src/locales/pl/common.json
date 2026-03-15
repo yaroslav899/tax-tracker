@@ -6,14 +6,22 @@
   "shares": { "title": "Akcje i Dywidendy", "description": "IBKR — akcje i dywidendy" },
   "sidebar": { "trades": "Kupno / Sprzedaż", "dividends": "Dywidendy" },
   "table": {
-    "ticker": "Ticker", "date": "Data",
-    "amount": "Kwota", "value": "Wartość", "valuePln": "Kwota (PLN)",
+    "ticker": "Ticker",
+    "date": "Data",
+    "amount": "Kwota",
+    "value": "Wartość",
+    "valuePln": "Kwota (PLN)",
     "tax19": "Podatek 19%",
     "currency": "Waluta",
-    "withholding": "Podatek u źródła", "withholdingPln": "Podatek u źródła (PLN)",
-    "price": "Cena", "allYears": "Wszystkie lata",
-    "filterByTicker": "Filtruj po tickerze...", "noData": "Brak danych",
-    "buy": "Kupno", "sell": "Sprzedaż", "dividends": "Dywidendy"
+    "withholding": "Podatek u źródła",
+    "withholdingPln": "Podatek u źródła (PLN)",
+    "price": "Cena",
+    "allYears": "Wszystkie lata",
+    "filterByTicker": "Filtruj po tickerze...",
+    "noData": "Brak danych",
+    "buy": "Kupno",
+    "sell": "Sprzedaż",
+    "dividends": "Dywidendy"
   },
   "taxWidget": {
     "title": "Obliczenie podatku USA - PIT38",
@@ -25,17 +33,27 @@
     "taxDue": "Podatek do zapłaty w Polsce"
   },
   "dividendModal": {
-    "add": "Dodaj dywidendę", "edit": "Edytuj dywidendę",
-    "save": "Zapisz", "cancel": "Anuluj", "upload": "Wgraj plik",
-    "convertBtn": "Przelicz na PLN", "converting": "Pobieranie kursu...",
+    "add": "Dodaj dywidendę",
+    "edit": "Edytuj dywidendę",
+    "save": "Zapisz",
+    "cancel": "Anuluj",
+    "upload": "Wgraj plik",
+    "convertBtn": "Przelicz na PLN",
+    "converting": "Pobieranie kursu...",
     "convertError": "Nie udało się pobrać kursu NBP. Spróbuj ponownie.",
     "rateApplied": "Kurs",
     "saveHint": "Aby zapisać, najpierw kliknij \"Przelicz na PLN\" aby pobrać kurs."
   },
   "auth": {
-    "login": "Zaloguj się", "register": "Utwórz konto", "email": "Email",
-    "password": "Hasło", "loginBtn": "Zaloguj się", "registerBtn": "Zarejestruj się",
-    "hasAccount": "Masz już konto?", "noAccount": "Nie masz konta?",
-    "loading": "Ładowanie...", "checkEmail": "Sprawdź email w celu potwierdzenia!"
+    "login": "Zaloguj się",
+    "register": "Utwórz konto",
+    "email": "Email",
+    "password": "Hasło",
+    "loginBtn": "Zaloguj się",
+    "registerBtn": "Zarejestruj się",
+    "hasAccount": "Masz już konto?",
+    "noAccount": "Nie masz konta?",
+    "loading": "Ładowanie...",
+    "checkEmail": "Sprawdź email w celu potwierdzenia!"
   }
 }

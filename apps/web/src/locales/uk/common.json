@@ -8,15 +8,20 @@
   "table": {
     "ticker": "Ticker", "date": "Дата",
     "amount": "Сума", "value": "Вартість", "valuePln": "Сума (PLN)",
-    "tax19": "Податок 19%",
+    "tax19": "Tax 19%",
     "currency": "Валюта",
-    "withholding": "Withholding", "withholdingPln": "Withholding (PLN)",
-    "price": "Ціна", "allYears": "Всі роки",
-    "filterByTicker": "Фільтр по тікеру...", "noData": "Немає даних",
-    "buy": "Купівля", "sell": "Продаж", "dividends": "Дивіденди"
+    "withholding": "Withholding",
+    "withholdingPln": "Withholding (PLN)",
+    "price": "Ціна",
+    "allYears": "Всі роки",
+    "filterByTicker": "Фільтр по тікеру...",
+    "noData": "Немає даних",
+    "buy": "Купівля",
+    "sell": "Продаж",
+    "dividends": "Дивіденди"
   },
   "taxWidget": {
-    "title": "Розрахунок податку USA - PIT38",
+    "title": "Розрахунок податку - PIT38 (USA)",
     "calculate": "Розрахувати",
     "hint": "Оберіть рік та натисніть кнопку для розрахунку",
     "grossDividends": "Gross dividends",
@@ -25,17 +30,27 @@
     "taxDue": "Tax due in Poland"
   },
   "dividendModal": {
-    "add": "Додати дивіденд", "edit": "Редагувати дивіденд",
-    "save": "Зберегти", "cancel": "Скасувати", "upload": "Завантажити файл",
-    "convertBtn": "Конвертувати в PLN", "converting": "Отримуємо курс...",
+    "add": "Додати дивіденд",
+    "edit": "Редагувати дивіденд",
+    "save": "Зберегти",
+    "cancel": "Скасувати",
+    "upload": "Завантажити файл",
+    "convertBtn": "Конвертувати в PLN",
+    "converting": "Отримуємо курс...",
     "convertError": "Не вдалося отримати курс NBP. Спробуйте ще раз.",
     "rateApplied": "Курс",
     "saveHint": "Для збереження спочатку натисніть \"Конвертувати в PLN\" щоб отримати курс."
   },
   "auth": {
-    "login": "Увійти", "register": "Створити акаунт", "email": "Email",
-    "password": "Пароль", "loginBtn": "Увійти", "registerBtn": "Зареєструватись",
-    "hasAccount": "Вже є акаунт?", "noAccount": "Немає акаунту?",
-    "loading": "Завантаження...", "checkEmail": "Перевір email для підтвердження!"
+    "login": "Увійти",
+    "register": "Створити акаунт",
+    "email": "Email",
+    "password": "Пароль",
+    "loginBtn": "Увійти",
+    "registerBtn": "Зареєструватись",
+    "hasAccount": "Вже є акаунт?",
+    "noAccount": "Немає акаунту?",
+    "loading": "Завантаження...",
+    "checkEmail": "Перевір email для підтвердження!"
   }
 }

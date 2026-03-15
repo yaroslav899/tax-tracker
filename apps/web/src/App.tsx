@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import { AuthProvider, useAuth } from './context/AuthContext'
+import { AuthProvider } from './context/AuthProvider'
+import { useAuth } from './hooks/useAuth'
 import { Login } from './pages/Login'
-import { SharesPage } from './pages/SharesPage'
 import { DashboardTemplate } from './components/templates/DashboardTemplate'
+import { SharesPage } from './pages/SharesPage'
 
 const Dashboard = () => {
   const { user, signOut } = useAuth()
@@ -32,7 +33,7 @@ const AppContent = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-950 flex items-center justify-center">
-        <div className="text-white">Завантаження...</div>
+        <div className="text-white">Loading...</div>
       </div>
     )
   }

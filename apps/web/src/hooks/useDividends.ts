@@ -2,12 +2,27 @@ import { useState, useEffect } from 'react'
 import { dividendsApi, type DividendPayload } from '../api/dividends'
 import { type Dividend } from '../components/molecules/DividendTable/types'
 
-const toDividend = (d: any): Dividend => ({
+interface RawDividend {
+  id: string
+  ticker: string
+  date: string
+  value: number
+  currency: string
+  withholding: number
+  valuePln?: number | null
+  withholdingPln?: number | null
+}
+
+const toDividend = (d: RawDividend): Dividend => ({
   id: d.id ?? '',
   ticker: d.ticker ?? '',
-  date: d.date ? new Date(d.date).toLocaleDateString('en-US', {
-    month: '2-digit', day: '2-digit', year: 'numeric'
-  }) : '',
+  date: d.date
+    ? new Date(d.date).toLocaleDateString('en-US', {
+        month: '2-digit',
+        day: '2-digit',
+        year: 'numeric',
+      })
+    : '',
   value: d.value ?? 0,
   currency: d.currency ?? 'USD',
   withholding: d.withholding ?? 0,
@@ -25,14 +40,16 @@ export const useDividends = () => {
       setLoading(true)
       const data = await dividendsApi.getAll()
       if (Array.isArray(data)) setDividends(data.map(toDividend))
-    } catch (e) {
+    } catch {
       setError('Failed to fetch dividends')
     } finally {
       setLoading(false)
     }
   }
 
-  useEffect(() => { fetchDividends() }, [])
+  useEffect(() => {
+    fetchDividends()
+  }, [])
 
   const create = async (payload: DividendPayload) => {
     const data = await dividendsApi.create(payload)
@@ -41,7 +58,7 @@ export const useDividends = () => {
 
   const update = async (id: string, payload: DividendPayload) => {
     const data = await dividendsApi.update(id, payload)
-    if (data?.id) setDividends((prev) => prev.map((d) => d.id === id ? toDividend(data) : d))
+    if (data?.id) setDividends((prev) => prev.map((d) => (d.id === id ? toDividend(data) : d)))
   }
 
   const remove = async (id: string) => {
