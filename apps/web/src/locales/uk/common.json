@@ -1,0 +1,41 @@
+{
+  "app": { "name": "Tax Tracker" },
+  "nav": { "signOut": "Вийти" },
+  "tabs": { "jdg": "JDG", "shares": "Акції та Дивіденди" },
+  "jdg": { "title": "JDG", "description": "Jednoosobowa Działalność Gospodarcza" },
+  "shares": { "title": "Акції та Дивіденди", "description": "IBKR — акції та дивіденди" },
+  "sidebar": { "trades": "Купівля / Продаж", "dividends": "Дивіденди" },
+  "table": {
+    "ticker": "Ticker", "date": "Дата",
+    "amount": "Сума", "value": "Вартість", "valuePln": "Сума (PLN)",
+    "tax19": "Податок 19%",
+    "currency": "Валюта",
+    "withholding": "Withholding", "withholdingPln": "Withholding (PLN)",
+    "price": "Ціна", "allYears": "Всі роки",
+    "filterByTicker": "Фільтр по тікеру...", "noData": "Немає даних",
+    "buy": "Купівля", "sell": "Продаж", "dividends": "Дивіденди"
+  },
+  "taxWidget": {
+    "title": "Розрахунок податку USA - PIT38",
+    "calculate": "Розрахувати",
+    "hint": "Оберіть рік та натисніть кнопку для розрахунку",
+    "grossDividends": "Gross dividends",
+    "taxBase": "Tax base (19%) — podatek obliczony od przychodów, o którym mowa w art. 30a ust. 1 pkt 1-5 ustawy",
+    "withholdingPaid": "Withholding paid — podatek zapłacony za granicą, o którym mowa w art. 30a ust. 9",
+    "taxDue": "Tax due in Poland"
+  },
+  "dividendModal": {
+    "add": "Додати дивіденд", "edit": "Редагувати дивіденд",
+    "save": "Зберегти", "cancel": "Скасувати", "upload": "Завантажити файл",
+    "convertBtn": "Конвертувати в PLN", "converting": "Отримуємо курс...",
+    "convertError": "Не вдалося отримати курс NBP. Спробуйте ще раз.",
+    "rateApplied": "Курс",
+    "saveHint": "Для збереження спочатку натисніть \"Конвертувати в PLN\" щоб отримати курс."
+  },
+  "auth": {
+    "login": "Увійти", "register": "Створити акаунт", "email": "Email",
+    "password": "Пароль", "loginBtn": "Увійти", "registerBtn": "Зареєструватись",
+    "hasAccount": "Вже є акаунт?", "noAccount": "Немає акаунту?",
+    "loading": "Завантаження...", "checkEmail": "Перевір email для підтвердження!"
+  }
+}

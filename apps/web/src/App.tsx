@@ -1,24 +1,28 @@
+import { useState } from 'react'
 import { AuthProvider, useAuth } from './context/AuthContext'
 import { Login } from './pages/Login'
+import { SharesPage } from './pages/SharesPage'
+import { DashboardTemplate } from './components/templates/DashboardTemplate'
 
 const Dashboard = () => {
   const { user, signOut } = useAuth()
+  const [activeTab, setActiveTab] = useState('jdg')
 
   return (
-    <div className="min-h-screen bg-gray-950 text-white p-8">
-      <div className="max-w-4xl mx-auto">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-2xl font-bold">Tax Tracker 🇵🇱</h1>
-          <button
-            onClick={signOut}
-            className="bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-lg transition-colors"
-          >
-            Вийти
-          </button>
+    <DashboardTemplate
+      email={user?.email ?? ''}
+      onSignOut={signOut}
+      activeTab={activeTab}
+      onTabChange={setActiveTab}
+    >
+      {activeTab === 'jdg' && (
+        <div>
+          <h2 className="text-2xl font-bold mb-2">JDG</h2>
+          <p className="text-gray-400">Jednoosobowa Działalność Gospodarcza</p>
         </div>
-        <p className="text-gray-400">Привіт, {user?.email}! 👋</p>
-      </div>
-    </div>
+      )}
+      {activeTab === 'shares' && <SharesPage />}
+    </DashboardTemplate>
   )
 }
 
