@@ -1,10 +1,26 @@
 {
-  "app": { "name": "Tax Tracker" },
-  "nav": { "signOut": "Wyloguj" },
-  "tabs": { "jdg": "JDG", "shares": "Akcje i Dywidendy" },
-  "jdg": { "title": "JDG", "description": "Jednoosobowa Działalność Gospodarcza" },
-  "shares": { "title": "Akcje i Dywidendy", "description": "IBKR — akcje i dywidendy" },
-  "sidebar": { "trades": "Kupno / Sprzedaż", "dividends": "Dywidendy" },
+  "app": {
+    "name": "Tax Tracker"
+  },
+  "nav": {
+    "signOut": "Wyloguj"
+  },
+  "tabs": {
+    "jdg": "JDG",
+    "shares": "Akcje i Dywidendy"
+  },
+  "jdg": {
+    "title": "JDG",
+    "description": "Jednoosobowa Działalność Gospodarcza"
+  },
+  "shares": {
+    "title": "Akcje i Dywidendy",
+    "description": "IBKR — akcje i dywidendy"
+  },
+  "sidebar": {
+    "trades": "Kupno / Sprzedaż",
+    "dividends": "Dywidendy"
+  },
   "table": {
     "ticker": "Ticker",
     "date": "Data",
@@ -21,7 +37,8 @@
     "noData": "Brak danych",
     "buy": "Kupno",
     "sell": "Sprzedaż",
-    "dividends": "Dywidendy"
+    "dividends": "Dywidendy",
+    "qty": "Ilość"
   },
   "taxWidget": {
     "title": "Obliczenie podatku USA - PIT38",
@@ -55,5 +72,17 @@
     "noAccount": "Nie masz konta?",
     "loading": "Ładowanie...",
     "checkEmail": "Sprawdź email w celu potwierdzenia!"
+  },
+  "portfolio": {
+    "title": "Portfel",
+    "subtitle": "Aktywne pozycje",
+    "empty": "Brak pozycji",
+    "positions": "pozycji"
+  },
+  "tradeModal": {
+    "addBuy": "Dodaj kupno",
+    "addSell": "Dodaj sprzedaż",
+    "edit": "Edytuj transakcję",
+    "upload": "Wgraj plik"
   }
 }

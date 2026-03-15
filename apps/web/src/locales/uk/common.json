@@ -1,13 +1,32 @@
 {
-  "app": { "name": "Tax Tracker" },
-  "nav": { "signOut": "Вийти" },
-  "tabs": { "jdg": "JDG", "shares": "Акції та Дивіденди" },
-  "jdg": { "title": "JDG", "description": "Jednoosobowa Działalność Gospodarcza" },
-  "shares": { "title": "Акції та Дивіденди", "description": "IBKR — акції та дивіденди" },
-  "sidebar": { "trades": "Купівля / Продаж", "dividends": "Дивіденди" },
+  "app": {
+    "name": "Tax Tracker"
+  },
+  "nav": {
+    "signOut": "Вийти"
+  },
+  "tabs": {
+    "jdg": "JDG",
+    "shares": "Акції та Дивіденди"
+  },
+  "jdg": {
+    "title": "JDG",
+    "description": "Jednoosobowa Działalność Gospodarcza"
+  },
+  "shares": {
+    "title": "Акції та Дивіденди",
+    "description": "IBKR — акції та дивіденди"
+  },
+  "sidebar": {
+    "trades": "Купівля / Продаж",
+    "dividends": "Дивіденди"
+  },
   "table": {
-    "ticker": "Ticker", "date": "Дата",
-    "amount": "Сума", "value": "Вартість", "valuePln": "Сума (PLN)",
+    "ticker": "Ticker",
+    "date": "Дата",
+    "amount": "Сума",
+    "value": "Вартість",
+    "valuePln": "Сума (PLN)",
     "tax19": "Tax 19%",
     "currency": "Валюта",
     "withholding": "Withholding",
@@ -18,7 +37,8 @@
     "noData": "Немає даних",
     "buy": "Купівля",
     "sell": "Продаж",
-    "dividends": "Дивіденди"
+    "dividends": "Дивіденди",
+    "qty": "Кількість"
   },
   "taxWidget": {
     "title": "Розрахунок податку - PIT38 (USA)",
@@ -52,5 +72,17 @@
     "noAccount": "Немає акаунту?",
     "loading": "Завантаження...",
     "checkEmail": "Перевір email для підтвердження!"
+  },
+  "portfolio": {
+    "title": "Портфель",
+    "subtitle": "Активні позиції",
+    "empty": "Немає позицій",
+    "positions": "позицій"
+  },
+  "tradeModal": {
+    "addBuy": "Додати купівлю",
+    "addSell": "Додати продаж",
+    "edit": "Редагувати угоду",
+    "upload": "Завантажити файл"
   }
 }

@@ -9,12 +9,25 @@ datasource db {
 }
 
 model User {
-  id           String        @id
-  email        String        @unique
-  createdAt    DateTime      @default(now())
-  updatedAt    DateTime      @updatedAt
-  transactions Transaction[]
+  id           String     @id
+  email        String     @unique
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
   dividends    Dividend[]
+  trades       Trade[]
+}
+
+model Trade {
+  id        String      @id @default(cuid())
+  ticker    String
+  type      TradeType
+  quantity  Float
+  price     Float
+  currency  String      @default("USD")
+  date      DateTime
+  userId    String
+  user      User        @relation(fields: [userId], references: [id])
+  createdAt DateTime    @default(now())
 }
 
 model Dividend {
@@ -31,21 +44,7 @@ model Dividend {
   createdAt      DateTime @default(now())
 }
 
-model Transaction {
-  id          String          @id @default(cuid())
-  ticker      String
-  type        TransactionType
-  quantity    Float
-  price       Float
-  currency    String
-  fee         Float           @default(0)
-  date        DateTime
-  userId      String
-  user        User            @relation(fields: [userId], references: [id])
-  createdAt   DateTime        @default(now())
-}
-
-enum TransactionType {
+enum TradeType {
   BUY
   SELL
 }

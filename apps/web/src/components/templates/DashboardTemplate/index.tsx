@@ -10,12 +10,15 @@ interface DashboardTemplateProps {
   children: React.ReactNode
 }
 
-export const DashboardTemplate = ({ email, onSignOut, activeTab, onTabChange, children }: DashboardTemplateProps) => {
+export const DashboardTemplate = ({
+  email,
+  onSignOut,
+  activeTab,
+  onTabChange,
+  children,
+}: DashboardTemplateProps) => {
   const { t } = useTranslation()
-  const TABS = [
-    { id: 'jdg', label: t('tabs.jdg') },
-    { id: 'shares', label: t('tabs.shares') },
-  ]
+  const TABS = [{ id: 'shares', label: t('tabs.shares') }]
   return (
     <div className="min-h-screen bg-gray-950 text-white">
       <Header email={email} onSignOut={onSignOut} />

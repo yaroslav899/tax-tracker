@@ -3,6 +3,7 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import { authMiddleware, type AuthRequest } from './middleware/auth'
 import dividendsRouter from './routes/dividends'
+import tradesRouter from './routes/trades'
 
 dotenv.config()
 
@@ -21,6 +22,7 @@ app.get('/api/me', authMiddleware, (req: AuthRequest, res: Response) => {
 })
 
 app.use('/api/dividends', dividendsRouter)
+app.use('/api/trades', tradesRouter)
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`)

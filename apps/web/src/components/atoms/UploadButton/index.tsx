@@ -25,7 +25,7 @@ export const UploadButton = ({ label, accept = '.csv', onFile }: UploadButtonPro
         onClick={() => inputRef.current?.click()}
         className="flex items-center gap-2 px-3 py-1.5 text-sm font-medium bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white rounded-lg transition-colors border border-gray-700"
       >
-        📂 {label}
+        {label}
       </button>
     </>
   )

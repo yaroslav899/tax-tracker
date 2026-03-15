@@ -1,10 +1,26 @@
 {
-  "app": { "name": "Tax Tracker" },
-  "nav": { "signOut": "Sign out" },
-  "tabs": { "jdg": "JDG", "shares": "Shares & Dividends" },
-  "jdg": { "title": "JDG", "description": "Jednoosobowa Działalność Gospodarcza" },
-  "shares": { "title": "Shares & Dividends", "description": "IBKR — stocks and dividends" },
-  "sidebar": { "trades": "Buy / Sell", "dividends": "Dividends" },
+  "app": {
+    "name": "Tax Tracker"
+  },
+  "nav": {
+    "signOut": "Sign out"
+  },
+  "tabs": {
+    "jdg": "JDG",
+    "shares": "Shares & Dividends"
+  },
+  "jdg": {
+    "title": "JDG",
+    "description": "Jednoosobowa Działalność Gospodarcza"
+  },
+  "shares": {
+    "title": "Shares & Dividends",
+    "description": "IBKR — stocks and dividends"
+  },
+  "sidebar": {
+    "trades": "Buy / Sell",
+    "dividends": "Dividends"
+  },
   "table": {
     "ticker": "Ticker",
     "date": "Date",
@@ -21,7 +37,8 @@
     "noData": "No data",
     "buy": "Buy",
     "sell": "Sell",
-    "dividends": "Dividends"
+    "dividends": "Dividends",
+    "qty": "Qty"
   },
   "taxWidget": {
     "title": "Tax calculation USA - PIT38",
@@ -55,5 +72,17 @@
     "noAccount": "Don't have an account?",
     "loading": "Loading...",
     "checkEmail": "Check your email for confirmation!"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "Active positions",
+    "empty": "No positions",
+    "positions": "positions"
+  },
+  "tradeModal": {
+    "addBuy": "Add buy",
+    "addSell": "Add sell",
+    "edit": "Edit trade",
+    "upload": "Upload file"
   }
 }

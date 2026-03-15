@@ -7,7 +7,7 @@ import { SharesPage } from './pages/SharesPage'
 
 const Dashboard = () => {
   const { user, signOut } = useAuth()
-  const [activeTab, setActiveTab] = useState('jdg')
+  const [activeTab, setActiveTab] = useState('shares')
 
   return (
     <DashboardTemplate
@@ -16,12 +16,6 @@ const Dashboard = () => {
       activeTab={activeTab}
       onTabChange={setActiveTab}
     >
-      {activeTab === 'jdg' && (
-        <div>
-          <h2 className="text-2xl font-bold mb-2">JDG</h2>
-          <p className="text-gray-400">Jednoosobowa Działalność Gospodarcza</p>
-        </div>
-      )}
       {activeTab === 'shares' && <SharesPage />}
     </DashboardTemplate>
   )
